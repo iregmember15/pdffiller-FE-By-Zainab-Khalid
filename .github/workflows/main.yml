@@ -1,0 +1,52 @@
+name: Deploy React App to Server
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 46.202.176.105 >> ~/.ssh/known_hosts
+        
+      # 4. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 5. Build the React app
+      - name: Build the React app
+        run: npm run build
+
+      # 6. Copy files to the VPS
+      - name: Copy files to VPS using rsync
+        run: |
+          # Copy build files from dist/
+          rsync -av --exclude='.git' dist/ root@46.202.176.105:/var/www/html/pdf-filler/
+
+      # 7. Restart the web server (Optional)
+      - name: Restart Web Server
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@46.202.176.105 << 'EOF'
+          sudo systemctl restart apache2
+          EOF
