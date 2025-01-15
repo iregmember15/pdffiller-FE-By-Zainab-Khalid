@@ -1,14 +1,14 @@
 import { useState } from "react";
-import uploadIcon from "../assets/images/uploadpdf.png";
 import arrowIcon from "../assets/images/arrow.png";
 import arrowDownIcon from "../assets/images/arrowDown.png";
 import templatesIcon from "../assets/images/template.png";
-import createAPI from "../assets/images/createAPI.png";
 import demoIcon from "../assets/images/demo.png";
-// import sheetIcon from '../assets/images/sheetIcon.png';
 import uploadPDF from "../assets/images/upload_body.png";
+
 import { useNavigate } from "react-router";
 import { PDFFillExcelAPIItems } from "../data/data";
+import uploadedPdf from "../assets/images/uploadedPdf.png";
+import DropdownMenu from "../components/DropdownMenu";
 
 const PDFFillExcelAPI: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -37,12 +37,8 @@ const PDFFillExcelAPI: React.FC = () => {
 
   return (
     <div className=" flex flex-col min-h-screen ">
-      <div className="bg-[#182B57] fixed top-0 w-full h-10"></div>
+      <div className="bg-[#182B57] fixed top-0 w-full h-10 z-50"></div>
       <div className="my-2 lg:mx-36 mt-16">
-        <h1 className="text-xl font-bold capitalize">
-          Fill pdf via spreadsheet / API
-        </h1>
-
         <div>
           {currentStep === 1 && (
             <div className="w-full p-4">
@@ -157,7 +153,7 @@ const PDFFillExcelAPI: React.FC = () => {
                   </div>
 
                   <div className="border border-gray-500 rounded-md flex justify-center items-start my-3 p-3">
-                    <input type="checkbox" className="m-2" title="" />
+                    <input type="checkbox" className="m-2" title="" aria-label="checkbox" />
                     <div className="text-[12px] text-[#182B57]">
                       <h2 className="font-semibold">
                         Use AI For Document Detection{" "}
@@ -194,46 +190,49 @@ const PDFFillExcelAPI: React.FC = () => {
             <div className="w-full p-4">
               <div className="w-full  bg-white  shadow-md">
                 <div className="flex justify-center gap-20 items-center bg-[#9AA1B0] py-4">
-                  <div className="flex flex-col items-center justify-center">
-                    <img
-                      src={uploadIcon}
-                      alt={`Upload icon`}
-                      className="w-6 h-6 "
-                    />
-                    <span>Upload PDF</span>
-                  </div>
+                  {PDFFillExcelAPIItems.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="flex  items-center justify-center"
+                      >
+                        <div className="flex flex-col items-center justify-center">
+                          <img
+                            src={item.icon}
+                            alt={`Upload icon`}
+                            className="w-6 h-6 "
+                          />
+                          <span>{item.label}</span>
+                        </div>
 
-                  <img
-                    src={arrowIcon}
-                    alt={`arrow icon`}
-                    className="w-8 h-6 "
-                  />
-
-                  <div className="flex flex-col items-center justify-center">
-                    <img
-                      src={createAPI}
-                      alt={`createAPI icon`}
-                      className="w-6 h-6 "
-                    />
-                    <span>Create API endpoint</span>
-                  </div>
+                        {index < PDFFillExcelAPIItems.length - 1 && (
+                          <img
+                            src={arrowIcon}
+                            alt={`arrow icon`}
+                            className="w-8 h-6 ms-2 "
+                          />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
+
                 <div className="flex flex-col justify-center items-center py-4">
                   <div className="w-1/2 flex justify-center items-center">
                     <button className=" text-center bg-[#6E86BE] text-white w-full p-3 mb-4 font-bold capitalize ">
                       {" "}
-                      NEXT STEP: create API endpoints
+                      NEXT STEP: upload cSV / MS EXCEL / OPEN OFFICE CALC
                     </button>
                   </div>
 
-                  <div className="w-1/2 flex justify-center items-center">
-                    <div className=" flex justify-center items-center border border-gray-500 text-[#182B57] w-full min-h-[200px] p-3 mb-4  font-bold">
-                      Your Uploaded PDF will show up here
+                  <div className="flex justify-center items-center mx-10">
+                    <div className=" flex justify-center items-center w-full min-h-[200px] p-3 mb-4 ">
+                      <img src={uploadedPdf} alt="document" />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="flex justify-end mx-10 gap-4 my-3 pb-1">
+              <div className="flex justify-end mx-10 gap-4 my-3 pb-10">
                 <button
                   className="px-4 py-2 bg-[#3A4F72] text-white  hover:bg-blue-600"
                   onClick={handlePrevious}
@@ -255,46 +254,111 @@ const PDFFillExcelAPI: React.FC = () => {
             <div className="w-full p-4">
               <div className="w-full  bg-white  shadow-md">
                 <div className="flex justify-center gap-20 items-center bg-[#9AA1B0] py-4">
-                  <div className="flex flex-col items-center justify-center">
-                    <img
-                      src={uploadIcon}
-                      alt={`Upload icon`}
-                      className="w-6 h-6 "
-                    />
-                    <span>Upload PDF</span>
-                  </div>
+                  {PDFFillExcelAPIItems.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="flex  items-center justify-center"
+                      >
+                        <div className="flex flex-col items-center justify-center">
+                          <img
+                            src={item.icon}
+                            alt={`Upload icon`}
+                            className="w-6 h-6 "
+                          />
+                          <span>{item.label}</span>
+                        </div>
 
-                  <img
-                    src={arrowIcon}
-                    alt={`arrow icon`}
-                    className="w-8 h-6 "
-                  />
-
-                  <div className="flex flex-col items-center justify-center">
-                    <img
-                      src={createAPI}
-                      alt={`createAPI icon`}
-                      className="w-6 h-6 "
-                    />
-                    <span>Create API endpoint</span>
-                  </div>
+                        {index < PDFFillExcelAPIItems.length - 1 && (
+                          <img
+                            src={arrowIcon}
+                            alt={`arrow icon`}
+                            className="w-8 h-6 ms-2 "
+                          />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
                 <div className="flex flex-col justify-center items-center py-4">
                   <div className="w-1/2 flex justify-center items-center">
                     <button className=" text-center bg-[#6E86BE] text-white w-full p-3 mb-4 font-bold capitalize ">
                       {" "}
-                      LAST STEP: Get / Set your API endpoints as shown below
+                      NEXT STEP: Drag Field names from uploaded spreadsheet and place them on PDF file
                     </button>
                   </div>
 
-                  <div className="w-1/2 flex justify-center items-center">
-                    <div className=" flex justify-center items-center border border-gray-500 text-[#182B57] w-full min-h-[200px] p-3 mb-4  font-bold">
-                      Your Uploaded PDF will show up here
+                  <div className="flex justify-center items-center mx-10">
+                    <div className=" flex justify-center items-center w-full min-h-[200px] p-3 mb-4 ">
+                      <img src={uploadedPdf} alt="document" />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="flex justify-end mx-10 gap-4 my-3 pb-1">
+              <div className="flex justify-end mx-10 gap-4 my-3 pb-10">
+                <button
+                  className="px-4 py-2 bg-[#3A4F72] text-white  hover:bg-blue-600"
+                  onClick={handlePrevious}
+                >
+                  Back
+                </button>
+
+                <button
+                  className="px-4 py-2 bg-[#3A4F72] text-white  hover:bg-blue-600"
+                  onClick={handleNext}
+                >
+                  Create API endpoints
+                </button>
+              </div>
+            </div>
+          )}
+
+          {currentStep === 4 && (
+            <div className="w-full p-4">
+              <div className="w-full  bg-white  shadow-md">
+                <div className="flex justify-center gap-20 items-center bg-[#9AA1B0] py-4">
+                  {PDFFillExcelAPIItems.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="flex  items-center justify-center"
+                      >
+                        <div className="flex flex-col items-center justify-center">
+                          <img
+                            src={item.icon}
+                            alt={`Upload icon`}
+                            className="w-6 h-6 "
+                          />
+                          <span>{item.label}</span>
+                        </div>
+
+                        {index < PDFFillExcelAPIItems.length - 1 && (
+                          <img
+                            src={arrowIcon}
+                            alt={`arrow icon`}
+                            className="w-8 h-6 ms-2 "
+                          />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex flex-col justify-center items-center py-4">
+                  <div className="w-1/2 flex justify-center items-center">
+                    <button className=" text-center bg-[#6E86BE] text-white w-full p-3 mb-4 font-bold capitalize ">
+                      {" "}
+                      NEXT STEP: Drag Field names from uploaded spreadsheet and place them on PDF file
+                    </button>
+                  </div>
+
+                  <div className="flex justify-center items-center mx-10">
+                    <div className=" flex justify-center items-center w-full min-h-[200px] p-3 mb-4 ">
+                      <img src={uploadedPdf} alt="document" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-end mx-10 gap-4 my-3 pb-10">
                 <button
                   className="px-4 py-2 bg-[#3A4F72] text-white  hover:bg-blue-600"
                   onClick={handlePrevious}
@@ -311,6 +375,47 @@ const PDFFillExcelAPI: React.FC = () => {
               </div>
             </div>
           )}
+
+          {currentStep === 5 && (
+            <div className="w-full p-4">
+              <div className="w-full  bg-white  shadow-md mb-10">
+                <div className="flex justify-center gap-20 items-center bg-[#9AA1B0] py-4">
+                  {PDFFillExcelAPIItems.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="flex  items-center justify-center"
+                      >
+                        <div className="flex flex-col items-center justify-center">
+                          <img
+                            src={item.icon}
+                            alt={`Upload icon`}
+                            className="w-6 h-6 "
+                          />
+                          <span>{item.label}</span>
+                        </div>
+
+                        {index < PDFFillExcelAPIItems.length - 1 && (
+                          <img
+                            src={arrowIcon}
+                            alt={`arrow icon`}
+                            className="w-8 h-6 ms-2 "
+                          />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex flex-col justify-center items-center py-4 ">
+
+                  <div className="flex flex-col justify-center items-center mx-10 w-full gap-5">
+                    <DropdownMenu />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
       <div className="bg-[#182B57] h-10 fixed bottom-0 w-full"></div>

@@ -3,6 +3,13 @@ import createAPIIcon from '../assets/images/create_api.png';
 import editIcon from '../assets/images/edit.png';
 import downloadIcon from '../assets/images/download.png';
 import sheetIcon from '../assets/images/sheetIcon.png';
+import bulbIcon from "../assets/images/bulbIcon.png";
+import encryptIcon from "../assets/images/Encryption.png";
+import pswdProtection from "../assets/images/pswdProtection.png";
+import upload_icon from "../assets/images/uploadIcon.png";
+import esignature from "../assets/images/esignature.png";
+import emailIcon from "../assets/images/emailIcon.png";
+import mask from "../assets/images/field_masking.png";
 
 export const navItems = [
   // {
@@ -323,7 +330,7 @@ export const footerLinks = [
   },
 ];
 
-export const PDFFillExcelAPIItems= [
+export const PDFFillExcelAPIItems = [
   {
     label: 'Upload PDF',
     icon: uploadIcon,
@@ -345,3 +352,46 @@ export const PDFFillExcelAPIItems= [
     icon: downloadIcon,
   },
 ]
+
+export const PDFFillExcelAPIMenus = [
+  {
+    title: "Specify Custom Filenames", subMenus: ["Custom filename options..."],
+    icon: bulbIcon,
+    type: "accordion",
+  },
+  {
+    title: "Output Options", subMenus: ["Output options here..."],
+    icon: upload_icon,
+    type: "accordion",
+  },
+  {
+    title: "API Options", subMenus: ["API-related options..."],
+    icon: upload_icon,
+  },
+  {
+    title: "Password-Protection", subMenus: ["ID", "First Name", "Last Name", "DOB", "Address"],
+    icon: pswdProtection,
+    type: "accordion",
+  },
+  {
+    title: "Send As Email Attachment",
+    subMenus: ["Details about email attachments."],
+    icon: emailIcon,
+    type: "accordion",
+  },
+  {
+    title: "Encryption", subMenus: ["Encryption-related settings."],
+    icon: encryptIcon,
+  },
+  {
+    title: "Field Masking",
+    subMenus: ["First Name", "Last Name", " Email", "Phone", "DOB"],
+    icon: mask,
+    type: "dropdown",
+  },
+  {
+    title: "E-Signature",
+    subMenus: ["Sign PDF", "Draw", "Type", "Picture", "Template", "Sign with QR code", "Notary", "Add Recipient"],
+    icon: esignature,
+    type: "dropdown",
+  }]

@@ -10,6 +10,9 @@ const PDFFillAPI: React.FC = () => {
 
     const handleNext = () => {
         setCurrentStep((prevStep) => prevStep + 1);
+        if(currentStep === 3){
+            navigate('/');
+        }
     };
 
     const handlePrevious = () => {
