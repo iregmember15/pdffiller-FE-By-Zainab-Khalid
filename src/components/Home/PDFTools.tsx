@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { toolsData } from "../../data/data";
-import About_bg from "../../assets/images/About_bg.png";
 import contact_widgets from "../../assets/images/contact_widgets.png";
 
 const PDFTools = () => {
@@ -70,12 +69,7 @@ const PDFTools = () => {
       </div>
 
       <div
-        className="mx-2 lg:mx-14 my-3 border border-gray-500 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${About_bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="mx-2 lg:mx-14 my-3 border border-gray-500 bg-cover bg-center about-bg"
       >
         <div className=" mx-28 capitalize py-20 ">
           <h1 className="text-[#182B57] font-bold text-[20px] ">About us</h1>

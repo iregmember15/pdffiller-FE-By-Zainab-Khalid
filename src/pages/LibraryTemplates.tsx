@@ -13,9 +13,6 @@ const LibraryTemplates: React.FC = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col">
             <header className="bg-[#182B57] text-white py-4 shadow-md">
-                {/* <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-xl font-bold">Library</h1>
-                </div> */}
             </header>
 
             <main className="flex-grow container mx-auto px-4 py-8 justify-center items-center">

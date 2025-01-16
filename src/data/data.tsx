@@ -12,10 +12,6 @@ import emailIcon from "../assets/images/emailIcon.png";
 import mask from "../assets/images/field_masking.png";
 
 export const navItems = [
-  // {
-  //     label: 'iREG-IT',
-  //     path: '/',
-  // },
   {
     label: 'Merge Pdf',
     path: '/',
@@ -40,14 +36,6 @@ export const navItems = [
     label: 'About',
     path: '/',
   },
-  // {
-  //     label: 'Login',
-  //     path: '/',
-  // },
-  // {
-  //     label: 'Sign up',
-  //     path: '/',
-  // },
 ]
 
 export const toolsData = [

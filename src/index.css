@@ -5,3 +5,11 @@
 body {
   background-color: #dbdada;
 }
+
+.about-bg {
+  background-image: url("../src/assets/images/About_bg.png");
+
+  background-size: cover;
+
+  background-position: center;
+}

@@ -4,9 +4,9 @@ import arrowDownIcon from "../assets/images/arrowDown.png";
 import templatesIcon from "../assets/images/template.png";
 import demoIcon from "../assets/images/demo.png";
 import uploadPDF from "../assets/images/upload_body.png";
-import { useNavigate } from "react-router";
-import { PDFFillExcelAPIItems } from "../data/data";
 import uploadedPdf from "../assets/images/uploadedPDF.png";
+import { PDFFillExcelAPIItems } from "../data/data";
+import { useNavigate } from "react-router";
 import DropdownMenu from "../components/DropdownMenu";
 
 const PDFFillExcelAPI: React.FC = () => {
@@ -30,8 +30,8 @@ const PDFFillExcelAPI: React.FC = () => {
   };
 
   const handleOptionClick = (path: string) => {
-    setIsDropdownOpen(false); 
-    navigate(path); 
+    setIsDropdownOpen(false);
+    navigate(path);
   };
 
   return (

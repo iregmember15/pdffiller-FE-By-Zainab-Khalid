@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import uploadIcon from '../assets/images/uploadpdf.png';
 import createAPI from '../assets/images/create_api.png';
 import arrowIcon from '../assets/images/arrow.png';
@@ -10,7 +10,7 @@ const PDFFillAPI: React.FC = () => {
 
     const handleNext = () => {
         setCurrentStep((prevStep) => prevStep + 1);
-        if(currentStep === 3){
+        if (currentStep === 3) {
             navigate('/');
         }
     };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import dotsVertical from '../assets/images/dotsvertical.png';
+import dotsVertical from '../assets/images/dotsVertical.png';
 
 interface Template {
     id: number;
