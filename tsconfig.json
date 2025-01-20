@@ -1,7 +1,19 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "react-jsx", 
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "outDir": "./dist",
+    "allowJs": false // Prevents `.js` files from being built
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*"
   ]
 }

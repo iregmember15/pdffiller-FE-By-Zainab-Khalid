@@ -3,7 +3,7 @@ import { navItems } from '../../data/data';
 
 const Navbar = () => {
     return (
-        <div className='bg-[#3A4F72] text-white px-10 py-4 flex justify-between items-center'>
+        <div className='bg-[#3A4F72] text-white px-10 py-4 flex justify-between items-center' >
             <Link to='/' className='font-bold'>iREG-IT</Link>
             <div className=' flex justify-between items-center gap-10'>
                 {navItems.map((item, index) =>

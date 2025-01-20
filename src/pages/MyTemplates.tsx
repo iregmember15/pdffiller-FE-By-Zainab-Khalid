@@ -59,7 +59,7 @@ const MyTemplates: React.FC = () => {
                                             onClick={() => toggleDropdown(template.id)}
                                             className="text-gray-700 hover:text-gray-900 focus:outline-none"
                                         >
-                                            <img src={dotsVertical} alt="dots" className='h-6' />
+                                            <img src={dotsVertical} alt="dots" className='h-6' data-testid={`MoreOptions-${template.id}`} />
                                         </button>
 
                                         {activeDropdown === template.id && (

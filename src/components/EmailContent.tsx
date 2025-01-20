@@ -53,7 +53,7 @@ const RichTextEditor = () => {
   ];
 
   return (
-    <div className="">
+    <div data-testid="rich-text-editor">
       <ReactQuill
         theme="snow"
         value={value}
