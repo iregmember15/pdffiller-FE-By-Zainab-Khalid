@@ -1,7 +1,6 @@
 import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 import PDFFillAPI from "./pages/PDFFillAPI";
-import CreateAPIMsg from "./pages/CreateAPIMsg";
 import PDFFillExcelAPI from "./pages/PDFFillExcelAPI";
 import LibraryTemplates from "./pages/LibraryTemplates";
 import MyTemplates from "./pages/MyTemplates";
@@ -14,7 +13,6 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/fill-pdf-api" element={<PDFFillAPI />} />
         <Route path="/fill-pdf-excel-api" element={<PDFFillExcelAPI />} />
-        <Route path="/create-api-msg" element={<CreateAPIMsg />} />
         <Route path="/my-templates" element={<MyTemplates />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/library" element={<LibraryTemplates />} />

@@ -28,7 +28,7 @@ const MyTemplates: React.FC = () => {
             <header className="bg-[#182B57]  py-4 shadow-md">
             </header>
 
-            <main className="flex-grow container mx-auto px-20 py-8 border border-gray-950 bg-white my-10">
+            <main className="flex-grow container mx-auto  px-2 md:px-20 py-8 border border-gray-950 bg-white my-10">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-lg font-semibold text-[#182B57]">My Templates</h2>
                     <button className="bg-[#182B57] text-white px-8 py-2 rounded-sm">
@@ -63,7 +63,7 @@ const MyTemplates: React.FC = () => {
                                         </button>
 
                                         {activeDropdown === template.id && (
-                                            <div className="absolute left-6 w-48 bg-[#D9D9D9] text[#182B57] shadow-lg rounded-md z-10 text-center mb-2">
+                                            <div className="absolute right-10 md:left-6 w-48 bg-[#D9D9D9] text[#182B57] shadow-lg rounded-md z-10 text-center mb-2">
                                                 <ul className="py-1">
                                                     <li className="px-4 py-2 hover:bg-white cursor-pointer">
                                                         View
@@ -91,7 +91,7 @@ const MyTemplates: React.FC = () => {
                 </div>
             </main>
 
-            <footer className="bg-[#182B57] py-4 ">
+            <footer className="bg-[#182B57] h-10 ">
             </footer>
         </div>
     );

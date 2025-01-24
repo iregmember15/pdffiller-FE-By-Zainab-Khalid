@@ -22,7 +22,7 @@ const DropdownMenu: React.FC = () => {
     };
 
     return (
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
             {PDFFillExcelAPIMenus.map((menu, index) => (
                 <div key={index} className="mb-4 border border-gray-400 rounded-sm w-full">
                     {/* For Dropdown Menus */}
@@ -43,7 +43,7 @@ const DropdownMenu: React.FC = () => {
                                     className="w-3 h-5"
                                 />
                                 {openDropdownIndex === index && (
-                                    <div className="absolute top-12 left-0 w-48 bg-white border border-gray-400 z-10 p-2">
+                                    <div className="absolute  top-5 md:top-12 right-0 md:left-0 w-48 bg-white border border-gray-400 z-10 p-2">
                                         {menu.subMenus.map((subMenu, subIndex) => (
                                             <div
                                                 key={subIndex}
@@ -58,7 +58,7 @@ const DropdownMenu: React.FC = () => {
                         </div>
                     ) : (
                         /* For Accordions */
-                        <div>
+                        <div className="w-full">
                             <div
                                 className="flex justify-between items-center px-5 py-3 cursor-pointer"
                                 onClick={() => handleAccordionToggle(index)}

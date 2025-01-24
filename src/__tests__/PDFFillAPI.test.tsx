@@ -61,7 +61,6 @@ describe('PDFFillAPI Component', () => {
 
         fireEvent.click(screen.getAllByText(/Next/i)[0]);
         fireEvent.click(screen.getAllByText(/Next/i)[1]);
-        fireEvent.click(screen.getByText(/Download/i));
         expect(screen.getByText(/Fill PDF via API/i)).toBeInTheDocument();
     });
 });

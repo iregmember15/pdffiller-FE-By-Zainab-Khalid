@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import { Link } from "react-router-dom";
 import { toolsData } from "../../data/data";
 import contact_widgets from "../../assets/images/contact_widgets.png";
@@ -20,25 +20,26 @@ const PDFTools = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 lg:m-10 ">
         {toolsData.map((tool, index) => (
           <Link
-            to={tool.path}
-            key={index}
-            className="bg-white shadow-md  p-4 flex flex-col  hover:shadow-lg hover:border-1 hover:border-gray-950 transition-shadow duration-300 border border-gray-500 cursor-pointer"
+        to={tool.path}
+        key={index}
+        className="bg-white shadow-md  p-4 flex flex-col  hover:shadow-lg hover:border-1 hover:border-gray-950 transition-shadow duration-300 border border-gray-500 cursor-pointer"
+        onClick={() => localStorage.clear()}
           >
-            <div className="flex justify-end mr-3">
-              <div className="w-12 h-12 flex items-center justify-center mb-2 ">
-                <img
-                  src={tool.icon}
-                  alt={`${tool.title} icon`}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
+        <div className="flex justify-end mr-3">
+          <div className="w-12 h-12 flex items-center justify-center mb-2 ">
+            <img
+          src={tool.icon}
+          alt={`${tool.title} icon`}
+          className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
 
-            <h3 className="text-lg font-bold mb-2 text-[#1951D1] text-left">
-              {tool.title}
-            </h3>
+        <h3 className="text-lg font-bold mb-2 text-[#1951D1] text-left">
+          {tool.title}
+        </h3>
 
-            <p className="text-sm font-bold text-[#2F4D94]">{tool.content}</p>
+        <p className="text-sm font-bold text-[#2F4D94]">{tool.content}</p>
           </Link>
         ))}
       </div>
@@ -57,7 +58,7 @@ const PDFTools = () => {
       </div>
 
       <div className="mx-2 lg:mx-14 my-3 border border-gray-500 ">
-        <div className=" mx-3 lg:mx-72 text-center capitalize py-20 flex justify-between items-center">
+        <div className=" mx-3 lg:mx-72 text-center capitalize py-4 lg:py-20 md:flex md:justify-between md:items-center">
           <h1 className="text-[#182B57] font-bold text-[24px] ">
             Contact with Widgets
           </h1>
@@ -72,9 +73,9 @@ const PDFTools = () => {
       <div
         className="mx-2 lg:mx-14 my-3 border border-gray-500 bg-cover bg-center about-bg"
       >
-        <div className=" mx-28 capitalize py-20 ">
+        <div className="mx-10 lg:mx-28 capitalize py-20 ">
           <h1 className="text-[#182B57] font-bold text-[20px] ">About us</h1>
-          <p className="text-[#2F4D94] font-semibold pr-72 ">
+          <p className="text-[#2F4D94] font-semibold lg:pr-72 ">
             A top web application for smooth PDF editing, iREG prioritizes the
             security of your digital documents while offering all the necessary
             tools to increase your productivity.

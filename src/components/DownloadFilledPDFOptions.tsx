@@ -26,8 +26,8 @@ const DownloadFilledPDFOptions: React.FC = () => {
   };
 
   return (
-    <div className="pb-5">
-      <div className="flex justify-between items-center mb-6 gap-4">
+    <div className=" pb-5">
+      <div className="flex justify-between items-center mb-6 lg:gap-4">
         <div className="flex items-center w-1/2">
           <input
             type="checkbox"

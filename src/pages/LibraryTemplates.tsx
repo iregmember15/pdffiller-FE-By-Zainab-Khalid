@@ -32,7 +32,10 @@ const LibraryTemplates: React.FC = () => {
                                 className="w-full h-80 object-cover"
                             />
                             <div className="p-4 text-center">
-                                <button className="text-blue-700 px-4 py-2 font-semibold  border-t w-full">
+                                <button
+                                    className="text-blue-700 px-4 py-2 font-semibold border-t w-full"
+                                    onClick={() => window.open(template.imgSrc, '_blank')}
+                                >
                                     Use Template
                                 </button>
                             </div>

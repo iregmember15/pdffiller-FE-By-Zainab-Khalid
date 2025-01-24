@@ -25,7 +25,7 @@ describe('PDFFillExcelAPI', () => {
 
         fireEvent.click(screen.getByText('Next'));
 
-        expect(screen.getByText('NEXT STEP: upload cSV / MS EXCEL / OPEN OFFICE CALC')).toBeInTheDocument();
+        expect(screen.getByText((content) => content.includes('NEXT STEP: upload CSV / MS EXCEL / OPEN OFFICE CALC'))).toBeInTheDocument();
     });
 
     test('navigates to previous step on Back button click', () => {

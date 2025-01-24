@@ -1,14 +1,20 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import CreateAPIMsg from '../pages/CreateAPIMsg';
+import CreateAPIMsg from '../components/CreateAPIMsg';
 import '@testing-library/jest-dom';
 
 describe('CreateAPIMsg', () => {
+    const mockSetCurrentStep = jest.fn();
+
+    beforeEach(() => {
+        mockSetCurrentStep.mockClear();
+    });
+
     it('renders the component correctly', () => {
         const { getByText } = render(
             <Router>
-                <CreateAPIMsg />
+                <CreateAPIMsg setCurrentStep={mockSetCurrentStep} />
             </Router>
         );
 
@@ -19,7 +25,7 @@ describe('CreateAPIMsg', () => {
     it('has the correct link', () => {
         const { getByRole } = render(
             <Router>
-                <CreateAPIMsg />
+                <CreateAPIMsg setCurrentStep={mockSetCurrentStep} />
             </Router>
         );
 
