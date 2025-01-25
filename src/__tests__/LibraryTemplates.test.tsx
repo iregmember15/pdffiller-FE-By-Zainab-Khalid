@@ -1,31 +1,47 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import LibraryTemplates from '../pages/LibraryTemplates';
-import '@testing-library/jest-dom'; 
+import pdfFile from '../assets/filled_form.pdf';
 
-describe('LibraryTemplates', () => {
+jest.mock('react-pdf-js', () => ({
+    __esModule: true,
+    default: ({ file }: { file: string }) => <div data-testid="pdf-viewer">PDF Viewer for {file}</div>,
+}));
 
-    test('renders main section', () => {
+describe('LibraryTemplates Component', () => {
+    test('renders without errors', () => {
         render(<LibraryTemplates />);
+
         const mainElement = screen.getByRole('main');
         expect(mainElement).toBeInTheDocument();
     });
 
-    test('render title', () => {
+    test('renders all templates', () => {
         render(<LibraryTemplates />);
-        const templateTitle = screen.getByText('Use Template Which You Want');
-        expect(templateTitle).toBeInTheDocument();
+
+        const templates = screen.getAllByTestId('pdf-viewer');
+        expect(templates).toHaveLength(3);
     });
 
-    test('renders "Use Template" buttons', () => {
+    test('renders each template with a PDF viewer and button', () => {
         render(<LibraryTemplates />);
-        const useTemplateButtons = screen.getAllByText('Use Template');
-        expect(useTemplateButtons).toHaveLength(3);
+
+        const pdfViewers = screen.getAllByTestId('pdf-viewer');
+        const buttons = screen.getAllByRole('button', { name: /Use Template/i });
+
+        expect(pdfViewers).toHaveLength(3);
+        expect(buttons).toHaveLength(3);
     });
 
-    test('renders images', () => {
+    test('opens the correct PDF in a new tab when clicking "Use Template"', () => {
+        window.open = jest.fn(); 
+
         render(<LibraryTemplates />);
-        const images = screen.getAllByRole('img');
-        expect(images).toHaveLength(3);
+
+        const buttons = screen.getAllByRole('button', { name: /Use Template/i });
+        fireEvent.click(buttons[0]);
+
+        expect(window.open).toHaveBeenCalledWith(pdfFile, '_blank');
     });
+
 });

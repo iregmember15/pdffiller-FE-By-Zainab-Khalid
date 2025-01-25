@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 interface CreateAPIMsgProps {
-    setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+    setIsCreateAPI: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CreateAPIMsg: React.FC<CreateAPIMsgProps> = ({ setCurrentStep }) => {
+const CreateAPIMsg: React.FC<CreateAPIMsgProps> = ({ setIsCreateAPI }) => {
 
     return (
         <div className='flex justify-center items-center min-h-screen '>
@@ -14,7 +14,7 @@ const CreateAPIMsg: React.FC<CreateAPIMsgProps> = ({ setCurrentStep }) => {
 
                 <h1 className='font-semibold text-lg  capitalize text-[#182B57]'>Use our app to create api</h1>
                 <Link to={`https://sheetify.clicflo.com`} className='underline text-[#182B57]'>https://sheetify.clicflo.com</Link>
-                <button type="button" onClick={() => setCurrentStep(prevStep => prevStep + 1)} className='mt-4 px-4 py-2 bg-[#3A4F72] text-white'>Done</button>
+                <button type="button" onClick={() => setIsCreateAPI(false)} className='mt-4 px-4 py-2 bg-[#3A4F72] text-white'>Done</button>
             </div>
 
             <div className="bg-[#182B57] h-10 fixed bottom-0 w-full"></div>

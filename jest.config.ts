@@ -7,9 +7,11 @@ const config: Config.InitialOptions = {
   transform: {
     "^.+\\.(ts|tsx)$": ["ts-jest", { isolatedModules: true }],
   },
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   moduleNameMapper: {
     "\\.(css|scss|sass|less)$": "<rootDir>/__mocks__/fileMock.js", // Mock style imports
     "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js", // Mock image imports
+    '\\.pdf$': '<rootDir>/__mocks__/fileMock.js',
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   setupFiles: ["<rootDir>/jest.setup.ts"],

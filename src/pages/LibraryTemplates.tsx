@@ -1,13 +1,12 @@
 import React from 'react';
-import template1 from '../assets/images/template1.png';
-import template2 from '../assets/images/template2.png';
-import template3 from '../assets/images/template3.png';
+import ReactPDF from 'react-pdf-js';
+import pdfFile from '../assets/filled_form.pdf'
 
 const LibraryTemplates: React.FC = () => {
     const templates = [
-        { id: 1, imgSrc: template1, title: 'Template 1' },
-        { id: 2, imgSrc: template2, title: 'Template 2' },
-        { id: 3, imgSrc: template3, title: 'Template 3' },
+        { id: 1, pdfUrl: pdfFile, title: 'Template 1' },
+        { id: 2, pdfUrl: pdfFile, title: 'Template 2' },
+        { id: 3, pdfUrl: pdfFile, title: 'Template 3' },
     ];
 
     return (
@@ -17,7 +16,7 @@ const LibraryTemplates: React.FC = () => {
 
             <main className="flex-grow container mx-auto px-4 py-8 justify-center items-center">
                 <div className='flex justify-center'>
-                <h2 className="text-center text-lg font-bold mb-6 bg-white text-[#182B57] capitalize p-2  px-20 w-max  ">Use Template Which You Want</h2>
+                    <h2 className="text-center text-lg font-bold mb-6 bg-white text-[#182B57] capitalize p-2  px-20 w-max  ">Use Template Which You Want</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 justify-items-center mx-20">
@@ -26,21 +25,19 @@ const LibraryTemplates: React.FC = () => {
                             key={template.id}
                             className="bg-white shadow-md  overflow-hidden w-80  border border-gray-300"
                         >
-                            <img
-                                src={template.imgSrc}
-                                alt={template.title}
-                                className="w-full h-80 object-cover"
-                            />
+                            <ReactPDF file={template.pdfUrl} page={1} scale={0.5} />
                             <div className="p-4 text-center">
                                 <button
                                     className="text-blue-700 px-4 py-2 font-semibold border-t w-full"
-                                    onClick={() => window.open(template.imgSrc, '_blank')}
+                                    onClick={() => window.open(template.pdfUrl, '_blank')}
                                 >
                                     Use Template
                                 </button>
                             </div>
                         </div>
                     ))}
+
+
                 </div>
             </main>
 

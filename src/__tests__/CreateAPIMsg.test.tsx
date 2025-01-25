@@ -5,16 +5,16 @@ import CreateAPIMsg from '../components/CreateAPIMsg';
 import '@testing-library/jest-dom';
 
 describe('CreateAPIMsg', () => {
-    const mockSetCurrentStep = jest.fn();
+    const mocksetIsCreateAPI = jest.fn();
 
     beforeEach(() => {
-        mockSetCurrentStep.mockClear();
+        mocksetIsCreateAPI.mockClear();
     });
 
     it('renders the component correctly', () => {
         const { getByText } = render(
             <Router>
-                <CreateAPIMsg setCurrentStep={mockSetCurrentStep} />
+                <CreateAPIMsg setIsCreateAPI={mocksetIsCreateAPI} />
             </Router>
         );
 
@@ -25,7 +25,7 @@ describe('CreateAPIMsg', () => {
     it('has the correct link', () => {
         const { getByRole } = render(
             <Router>
-                <CreateAPIMsg setCurrentStep={mockSetCurrentStep} />
+                <CreateAPIMsg setIsCreateAPI={mocksetIsCreateAPI} />
             </Router>
         );
 
