@@ -1,8 +1,8 @@
-import uploadIcon from '../assets/images/uploadpdf.png';
-import createAPIIcon from '../assets/images/create_api.png';
-import editIcon from '../assets/images/edit.png';
-import downloadIcon from '../assets/images/download.png';
-import sheetIcon from '../assets/images/sheetIcon.png';
+import uploadIcon from "../assets/images/uploadpdf.png";
+import createAPIIcon from "../assets/images/create_api.png";
+import editIcon from "../assets/images/edit.png";
+import downloadIcon from "../assets/images/download.png";
+import sheetIcon from "../assets/images/sheetIcon.png";
 import bulbIcon from "../assets/images/bulbIcon.png";
 import encryptIcon from "../assets/images/Encryption.png";
 import pswdProtection from "../assets/images/pswdProtection.png";
@@ -13,59 +13,78 @@ import mask from "../assets/images/field_masking.png";
 
 export const navItems = [
   {
-    label: 'Merge Pdf',
-    path: '/',
+    label: "Merge Pdf",
+    path: "/",
   },
   {
-    label: 'Split Pdf',
-    path: '/',
+    label: "Split Pdf",
+    path: "/",
   },
   {
-    label: 'Edit Pdf',
-    path: '/',
+    label: "Edit Pdf",
+    path: "/",
   },
   {
-    label: 'Compress Pdf',
-    path: '/',
+    label: "Compress Pdf",
+    path: "/",
   },
   {
-    label: 'Contact',
-    path: '/',
+    label: "Contact",
+    path: "/",
   },
   {
-    label: 'About',
-    path: '/',
+    label: "About",
+    path: "/",
   },
-]
+];
 
 export const toolsData = [
   {
     title: "Edit PDF",
-    content: "Add text, images, shapes or freehand annotations to a PDF document. Edit the size, font, and color of the added content.",
+    content:
+      "Add text, images, shapes or freehand annotations to a PDF document. Edit the size, font, and color of the added content.",
     icon: "/editIcon.png",
     path: "/edit-pdf",
   },
   {
     title: "Fill PDF via API",
-    content: "Convert PDF data into actionable insights with our seamless PDF-to-API integration.",
+    content:
+      "Convert PDF data into actionable insights with our seamless PDF-to-API integration.",
     icon: "/fillApiIcon.png",
     path: "/fill-pdf-api",
   },
   {
     title: "Fill PDF via MS Excel & API",
-    content: "Automates form population from Excel data, ensuring efficient and error-free processing.",
+    content:
+      "Automates form population from Excel data, ensuring efficient and error-free processing.",
     icon: "/excelApiIcon.png",
     path: "/fill-pdf-excel-api",
   },
   {
+    title: "PDF VIA Googlesheet",
+    content:
+      "Generate PDFS Directly from google sheet using built-in-apps script or third-party add-ons like autocrat.",
+    icon: "/pdfGooglesheetIcon.png",
+    path: "/pdf-googlesheet",
+  },
+  {
+    title: "Print Check",
+    content: "Seamlessly manage and validate checks with ease.",
+    icon: "/printCheckIcon.png",
+    path: "/print-check",
+  },
+
+  {
     title: "E-Signatures",
-    content: "Streamline document approvals with secure and legally compliant e-signatures.",
+    content:
+      "Streamline document approvals with secure and legally compliant e-signatures.",
     icon: "/esignatureIcon.png",
     path: "/e-signatures",
   },
   {
     title: "Create PDF",
-    content: "Create professional-grade PDFs instantly with our easy-to-use API.",
+    content:
+      "Create professional-grade PDFs instantly with our easy-to-use API.",
     icon: "/createPdfIcon.png",
     path: "/create-pdf",
   },
@@ -77,19 +96,22 @@ export const toolsData = [
   },
   {
     title: "Workflows",
-    content: "Optimize efficiency with automated, customizable workflows tailored to your needs.",
+    content:
+      "Optimize efficiency with automated, customizable workflows tailored to your needs.",
     icon: "/workflowsIcon.png",
     path: "/workflows",
   },
   {
     title: "PDF to Word",
-    content: "Easily convert your PDF files into easy-to-edit DOC and DOCX documents.",
+    content:
+      "Easily convert your PDF files into easy-to-edit DOC and DOCX documents.",
     icon: "/pdfToWordIcon.png",
     path: "/pdf-to-word",
   },
   {
     title: "PDF to Excel & API",
-    content: "Pull data straight from PDFs into Excel spreadsheets in a few short seconds.",
+    content:
+      "Pull data straight from PDFs into Excel spreadsheets in a few short seconds.",
     icon: "/pdfToExcelIcon.png",
     path: "/pdf-to-excel-api",
   },
@@ -107,19 +129,22 @@ export const toolsData = [
   },
   {
     title: "PowerPoint to PDF",
-    content: "Make PPT and PPTX slideshows easy to view by converting them to PDF.",
+    content:
+      "Make PPT and PPTX slideshows easy to view by converting them to PDF.",
     icon: "/pptToPdfIcon.png",
     path: "/powerpoint-to-pdf",
   },
   {
     title: "JPG to PDF",
-    content: "Convert JPG images to PDF in seconds. Easily adjust orientation and margins.",
+    content:
+      "Convert JPG images to PDF in seconds. Easily adjust orientation and margins.",
     icon: "/jpgToPdfIcon.png",
     path: "/jpg-to-pdf",
   },
   {
     title: "Watermark",
-    content: "Stamp an image or text over your PDF in seconds. Choose typography, transparency, and position.",
+    content:
+      "Stamp an image or text over your PDF in seconds. Choose typography, transparency, and position.",
     icon: "/watermarkIcon.png",
     path: "/watermark",
   },
@@ -131,31 +156,36 @@ export const toolsData = [
   },
   {
     title: "PDF to JPG",
-    content: "Convert each PDF page into a JPG or extract all images contained in a PDF.",
+    content:
+      "Convert each PDF page into a JPG or extract all images contained in a PDF.",
     icon: "/pdfToJpgIcon.png",
     path: "/pdf-to-jpg",
   },
   {
     title: "Unlock PDF",
-    content: "Remove PDF password security, giving you the freedom to use your PDFs as you want.",
+    content:
+      "Remove PDF password security, giving you the freedom to use your PDFs as you want.",
     icon: "/unlockPdfIcon.png",
     path: "/unlock-pdf",
   },
   {
     title: "Protect PDF",
-    content: "Protect PDF files with a password. Encrypt PDF documents to prevent unauthorized access.",
+    content:
+      "Protect PDF files with a password. Encrypt PDF documents to prevent unauthorized access.",
     icon: "/protectPdfIcon.png",
     path: "/protect-pdf",
   },
   {
     title: "Rotate PDF",
-    content: "Rotate your PDFs the way you need them. You can even rotate multiple PDFs at once!",
+    content:
+      "Rotate your PDFs the way you need them. You can even rotate multiple PDFs at once!",
     icon: "/rotatePdfIcon.png",
     path: "/rotate-pdf",
   },
   {
     title: "HTML to PDF",
-    content: "Convert webpages in HTML to PDF. Copy and paste the URL of the page you want and convert it to PDF with a click.",
+    content:
+      "Convert webpages in HTML to PDF. Copy and paste the URL of the page you want and convert it to PDF with a click.",
     icon: "/htmlToPdfIcon.png",
     path: "/html-to-pdf",
   },
@@ -167,55 +197,64 @@ export const toolsData = [
   },
   {
     title: "Page Numbers",
-    content: "Add page numbers into PDFs with ease. Choose your positions, dimensions, typography.",
+    content:
+      "Add page numbers into PDFs with ease. Choose your positions, dimensions, typography.",
     icon: "/pageNumbersIcon.png",
     path: "/page-numbers",
   },
   {
     title: "Organize PDF",
-    content: "Sort pages of your PDF file however you like. Delete or add pages at your convenience.",
+    content:
+      "Sort pages of your PDF file however you like. Delete or add pages at your convenience.",
     icon: "/organizePdfIcon.png",
     path: "/organize-pdf",
   },
   {
     title: "PDF to PDF/A",
-    content: "Transform your PDF to PDF/A, ensuring formatting when accessed in the future.",
+    content:
+      "Transform your PDF to PDF/A, ensuring formatting when accessed in the future.",
     icon: "/pdfToPdfAIcon.png",
     path: "/pdf-to-pdfa",
   },
   {
     title: "Compare PDF",
-    content: "Show a side-by-side document comparison and easily spot changes between different file versions.",
+    content:
+      "Show a side-by-side document comparison and easily spot changes between different file versions.",
     icon: "/comparePdfIcon.png",
     path: "/compare-pdf",
   },
   {
     title: "Redact PDF",
-    content: "Redact text and graphics to permanently remove sensitive information.",
+    content:
+      "Redact text and graphics to permanently remove sensitive information.",
     icon: "/redactPdfIcon.png",
     path: "/redact-pdf",
   },
   {
     title: "Scan to PDF",
-    content: "Capture document scans from your mobile device and send them instantly to your browser.",
+    content:
+      "Capture document scans from your mobile device and send them instantly to your browser.",
     icon: "/scanToPdfIcon.png",
     path: "/scan-to-pdf",
   },
   {
     title: "OCR PDF",
-    content: "Easily convert scanned PDFs into searchable and selectable documents.",
+    content:
+      "Easily convert scanned PDFs into searchable and selectable documents.",
     icon: "/ocrPdfIcon.png",
     path: "/ocr-pdf",
   },
   {
     title: "Lock PDF",
-    content: "Secure your document by locking PDFs with password protection for enhanced privacy and data safety.",
+    content:
+      "Secure your document by locking PDFs with password protection for enhanced privacy and data safety.",
     icon: "/lockPdfIcon.png",
     path: "/lock-pdf",
   },
   {
     title: "Delete Pages",
-    content: "Easily remove unwanted pages from your PDF to create a streamlined and customized document.",
+    content:
+      "Easily remove unwanted pages from your PDF to create a streamlined and customized document.",
     icon: "/deletePagesIcon.png",
     path: "/delete-pages",
   },
@@ -227,25 +266,29 @@ export const toolsData = [
   },
   {
     title: "Translate PDF",
-    content: "Effortlessly translate PDFs into multiple languages while preserving the original layout and formatting.",
+    content:
+      "Effortlessly translate PDFs into multiple languages while preserving the original layout and formatting.",
     icon: "/translatePdfIcon.png",
     path: "/translate-pdf",
   },
   {
     title: "Chat with PDF",
-    content: "Engage in interactive conversations with your PDF to quickly find answers and insights.",
+    content:
+      "Engage in interactive conversations with your PDF to quickly find answers and insights.",
     icon: "/chatWithPdfIcon.png",
     path: "/chat-with-pdf",
   },
   {
     title: "Flatten PDF",
-    content: "Flatten your PDF to merge all layers and annotations into a single, uneditable document.",
+    content:
+      "Flatten your PDF to merge all layers and annotations into a single, uneditable document.",
     icon: "/flattenPdfIcon.png",
     path: "/flatten-pdf",
   },
   {
     title: "Crop PDF",
-    content: "Precisely crop PDF pages to focus on the content that matters, enhancing readability.",
+    content:
+      "Precisely crop PDF pages to focus on the content that matters, enhancing readability.",
     icon: "/cropPdfIcon.png",
     path: "/crop-pdf",
   },
@@ -275,7 +318,8 @@ export const toolsData = [
   },
   {
     title: "Generate PDF to API",
-    content: "Generate high-quality PDF documents seamlessly through our robust API integration.",
+    content:
+      "Generate high-quality PDF documents seamlessly through our robust API integration.",
     icon: "/compressPdfIcon.png",
     path: "/generate-pdf-api",
   },
@@ -320,44 +364,48 @@ export const footerLinks = [
 
 export const PDFFillExcelAPIItems = [
   {
-    label: 'Upload PDF',
+    label: "Upload PDF",
     icon: uploadIcon,
   },
   {
-    label: 'Upload Spreadsheet',
+    label: "Upload Spreadsheet",
     icon: sheetIcon,
   },
   {
-    label: 'Edit Template',
+    label: "Edit Template",
     icon: editIcon,
   },
   {
-    label: 'Create API Endpoint',
+    label: "Create API Endpoint",
     icon: createAPIIcon,
   },
   {
-    label: 'Download',
+    label: "Download",
     icon: downloadIcon,
   },
-]
+];
 
 export const PDFFillExcelAPIMenus = [
   {
-    title: "Specify Custom Filenames", subMenus: ["Custom filename options..."],
+    title: "Specify Custom Filenames",
+    subMenus: ["Custom filename options..."],
     icon: bulbIcon,
     type: "accordion",
   },
   {
-    title: "Output Options", subMenus: ["Output options here..."],
+    title: "Output Options",
+    subMenus: ["Output options here..."],
     icon: upload_icon,
     type: "accordion",
   },
   {
-    title: "API Options", subMenus: ["API-related options..."],
+    title: "API Options",
+    subMenus: ["API-related options..."],
     icon: upload_icon,
   },
   {
-    title: "Password-Protection", subMenus: ["ID", "First Name", "Last Name", "DOB", "Address"],
+    title: "Password-Protection",
+    subMenus: ["ID", "First Name", "Last Name", "DOB", "Address"],
     icon: pswdProtection,
     type: "accordion",
   },
@@ -368,7 +416,8 @@ export const PDFFillExcelAPIMenus = [
     type: "accordion",
   },
   {
-    title: "Encryption", subMenus: ["Encryption-related settings."],
+    title: "Encryption",
+    subMenus: ["Encryption-related settings."],
     icon: encryptIcon,
   },
   {
@@ -379,7 +428,36 @@ export const PDFFillExcelAPIMenus = [
   },
   {
     title: "E-Signature",
-    subMenus: ["Sign PDF", "Draw", "Type", "Picture", "Template", "Sign with QR code", "Notary", "Add Recipient"],
+    subMenus: [
+      "Sign PDF",
+      "Draw",
+      "Type",
+      "Picture",
+      "Template",
+      "Sign with QR code",
+      "Notary",
+      "Add Recipient",
+    ],
     icon: esignature,
     type: "dropdown",
-  }]
+  },
+];
+
+export const FillViaCSVItems = [
+  {
+    label: "Cheque",
+    icon: "/cheque Icon.png",
+  },
+  {
+    label: "Upload Spreadsheet",
+    icon: sheetIcon,
+  },
+  {
+    label: "Create API Endpoint",
+    icon: createAPIIcon,
+  },
+  {
+    label: "Print",
+    icon: "/print-solid-1.png",
+  },
+];
