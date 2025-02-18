@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const PDFFillAPI = lazy(() => import("./pages/PDFFillAPI"));
@@ -15,7 +15,8 @@ const FillViaCSV = lazy(() => import("./pages/FillViaCSV"));
 const FillManually = lazy(() => import("./pages/FillManually"));
 const ViewReport = lazy(() => import("./pages/ViewReport"));
 const ProfessionPage = lazy(() => import("./pages/ProfessionPage"));
-const LoginPage = lazy(() => import("./pages/Login"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
         <Route path="/fill-pdf-api" element={<PDFFillAPI />} />
         <Route path="/fill-pdf-excel-api" element={<PDFFillExcelAPI />} />

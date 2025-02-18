@@ -4,7 +4,20 @@ import Cookies from "js-cookie";
 // Login API
 export const login = async (payload: any) => {
   try {
-    const response = await apiClient.post("/api/auth/login/", payload);
+    console.log("Csrf token: ", Cookies.get("csrftoken"));
+
+    // Make sure CSRF token is set
+    const csrfToken = Cookies.get("csrftoken");
+    if (!csrfToken) {
+      console.error("CSRF token not found.");
+      return { success: false, message: "CSRF token missing" };
+    }
+
+    const response = await apiClient.post("/api/auth/login/", payload, {
+      headers: {
+        "X-CSRFToken": csrfToken,
+      },
+    });
 
     if (response.data.status === "success" && response.data.jwt) {
       const { access, refresh, user } = response.data.jwt;
@@ -18,9 +31,34 @@ export const login = async (payload: any) => {
       return { success: false, message: "Invalid credentials" };
     }
   } catch (error: any) {
+    console.error("Login error: ", error);
     return {
       success: false,
       message: error.response?.data?.detail || "Login failed",
+    };
+  }
+};
+
+// Register i-e signup API
+export const register = async (payload: any) => {
+  try {
+    const response = await apiClient.post("/api/auth/register/", payload);
+
+    if (response.data.access && response.data.refresh) {
+      const { access, refresh, user } = response.data;
+
+      // Store tokens in cookies
+      Cookies.set("access_token", access, { expires: 1 }); // Expires in 1 day
+      Cookies.set("refresh_token", refresh, { expires: 7 }); // Expires in 7 days
+
+      return { success: true, user };
+    } else {
+      return { success: false, message: "Registration failed" };
+    }
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.response?.data?.detail || "Registration failed",
     };
   }
 };
