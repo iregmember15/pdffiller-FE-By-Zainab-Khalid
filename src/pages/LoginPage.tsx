@@ -2,6 +2,9 @@ import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ApiApi } from "api-client";
 import { getApiConfiguration } from "../api/utils";
+import { useDispatch } from "react-redux";
+import { login } from "../store/slices/authSlice";
+import { userDetail } from "../store/slices/userSlice";
 
 const getClient = () => {
   return new ApiApi(getApiConfiguration());
@@ -9,10 +12,13 @@ const getClient = () => {
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
   const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -28,24 +34,29 @@ export default function LoginPage() {
     const client = getClient();
     const credentials = { email: formData.email, password: formData.password };
 
-    client
-      .apiAuthLoginCreate({ login: credentials })
-      .then((data: any) => {
-        if (data.status === "success" && data.jwt) {
-          return navigate("/"); // Navigate to the home page after successful login
-        } else if (data.status === "otp_required" && data.tempOtpToken) {
-          localStorage.setItem("tempOtpToken", data.tempOtpToken);
-          return navigate("/login/otp/"); // Navigate to OTP page if OTP is required
-        }
-      })
-      .catch((error: any) => {
-        error.response.json().then(() => {
-          setLoginError("There was a problem logging in. Please try again.");
-        });
-      })
-      .finally(() => {
-        setLoading(false); // Stop loading state once the request is complete
-      });
+    try {
+      const data = await client.apiAuthLoginCreate({ login: credentials });
+
+      if (data.status === "success" && data.jwt) {
+        dispatch(
+          login({
+            access: data.jwt.access,
+            refresh: data.jwt.refresh,
+          })
+        ); // Save data to Redux
+        dispatch(userDetail(data.jwt.user));
+        navigate("/"); // Navigate to home page
+      } else if (data.status === "otp_required" && data.tempOtpToken) {
+        localStorage.setItem("tempOtpToken", data.tempOtpToken);
+        navigate("/login/otp/"); // Navigate to OTP page
+      } else {
+        setLoginError("Invalid credentials. Please try again.");
+      }
+    } catch (error) {
+      setLoginError("There was a problem logging in. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

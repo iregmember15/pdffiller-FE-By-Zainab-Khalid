@@ -15,7 +15,6 @@ models/Login.ts
 models/LoginResponse.ts
 models/Membership.ts
 models/OtpRequest.ts
-models/PaginatedEmployeeList.ts
 models/PaginatedInvitationList.ts
 models/PaginatedTeamList.ts
 models/PasswordChange.ts
