@@ -18,7 +18,7 @@ const Navbar = () => {
         ))}
       </div>
       <div className="hidden md:flex justify-between items-center gap-4">
-        <Link to="/login" className="hover:underline">
+        <Link to="/" className="hover:underline">
           Login
         </Link>
         <Link to="/register" className="hover:underline">

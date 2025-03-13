@@ -1,23 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PatchedCustomUser } from "api-client";
+import { AuthState, User } from "../../@types/auth";
 
-interface UserState {
-  user: PatchedCustomUser | null;
-}
-
-const initialState: UserState = {
+const initialState: AuthState = {
   user: null,
+  isAuthenticated: false,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    userDetail: (state, action: PayloadAction<PatchedCustomUser>) => {
+    // Accept only the user object
+    userDetail: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
+      state.isAuthenticated = true;
     },
     clearUser: (state) => {
       state.user = null;
+      state.isAuthenticated = false;
     },
   },
 });

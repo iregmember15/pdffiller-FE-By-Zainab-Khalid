@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
+import PrivateRoute from "./PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const PDFFillAPI = lazy(() => import("./pages/PDFFillAPI"));
@@ -22,12 +23,13 @@ const App = () => {
   return (
     <div className="App" data-testid="app">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-
-        <Route path="/fill-pdf-api" element={<PDFFillAPI />} />
-        <Route path="/fill-pdf-excel-api" element={<PDFFillExcelAPI />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<HomePage />} />
+          <Route path="/fill-pdf-api" element={<PDFFillAPI />} />
+          <Route path="/fill-pdf-excel-api" element={<PDFFillExcelAPI />} />
+        </Route>
         <Route path="/my-templates" element={<MyTemplates />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/library" element={<LibraryTemplates />} />

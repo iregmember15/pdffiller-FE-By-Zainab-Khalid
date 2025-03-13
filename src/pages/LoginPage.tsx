@@ -1,14 +1,9 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ApiApi } from "api-client";
-import { getApiConfiguration } from "../api/utils";
 import { useDispatch } from "react-redux";
-import { login } from "../store/slices/authSlice";
 import { userDetail } from "../store/slices/userSlice";
-
-const getClient = () => {
-  return new ApiApi(getApiConfiguration());
-};
+import { login } from "../api/auth"; // Import login function
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -31,33 +26,28 @@ export default function LoginPage() {
     setLoading(true);
     setLoginError("");
 
-    const client = getClient();
-    const credentials = { email: formData.email, password: formData.password };
-
     try {
-      const data = await client.apiAuthLoginCreate({ login: credentials });
+      const result = await login(formData);
 
-      if (data.status === "success" && data.jwt) {
-        dispatch(
-          login({
-            access: data.jwt.access,
-            refresh: data.jwt.refresh,
-          })
-        ); // Save data to Redux
-        dispatch(userDetail(data.jwt.user));
-        navigate("/"); // Navigate to home page
-      } else if (data.status === "otp_required" && data.tempOtpToken) {
-        localStorage.setItem("tempOtpToken", data.tempOtpToken);
-        navigate("/login/otp/"); // Navigate to OTP page
-      } else {
-        setLoginError("Invalid credentials. Please try again.");
+      if (result.success && result.user) {
+        dispatch(userDetail(result.user)); // Save user details to Redux
+        navigate("/dashboard"); // Navigate to home page
+        return;
       }
+
+      setLoginError(result.message || "An unexpected error occurred.");
     } catch (error) {
       setLoginError("There was a problem logging in. Please try again.");
     } finally {
       setLoading(false);
     }
   }
+  useEffect(() => {
+    const token = Cookies.get("access_token");
+    if (token) {
+      navigate("/dashboard"); // Redirect to dashboard if token exists
+    }
+  }, []);
 
   return (
     <div className="min-h-screen w-100 flex justify-center items-center">
