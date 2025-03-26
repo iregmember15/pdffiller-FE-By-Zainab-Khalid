@@ -15,7 +15,9 @@ const PDFFillExcelAPI: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [uploadedFileURL, setUploadedFileURL] = useState<string | null>(null);
   const [isCreateAPI, setIsCreateAPI] = useState<boolean>(false);
-
+  const [endPoint, setEndPoint] = useState('');
+  const [key, setKey] = useState('');
+  const [schedule, setSchedule] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -338,13 +340,28 @@ const PDFFillExcelAPI: React.FC = () => {
                       </p>
                       <div className='flex flex-col lg:flex-row justify-between items-center w-full py-4 gap-2 '>
                         <label htmlFor='API Endpoint' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>API Endpoint
-                          <input type='text' placeholder='' title='API Endpoint' className='w-full  border border-gray-700' />
+                          <input type='text'
+                          value={endPoint}
+                           onChange={(e) =>{
+                            setEndPoint(e.target.value);
+                           }}
+                           placeholder='' title='API Endpoint' className='w-full  border border-gray-700' />
                         </label>
                         <label htmlFor='Key' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>Key
-                          <input type='text' placeholder='' title='Key' className='w-full  border border-gray-700' />
+                          <input type='text' 
+                          value={key}
+                          onChange={(e) =>{
+                            setKey(e.target.value);
+                          }}
+                          placeholder='' title='Key' className='w-full  border border-gray-700' />
                         </label>
                         <label htmlFor='Schedule' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>Schedule
-                          <input type='text' placeholder='' title='Schedule' className='w-full  border border-gray-700' />
+                          <input type='text' 
+                          value={schedule}
+                          onChange={(e) =>{
+                            setSchedule(e.target.value);
+                          }}
+                          placeholder='' title='Schedule' className='w-full  border border-gray-700' />
                         </label>
                       </div>
                     </div>
