@@ -66,8 +66,7 @@ const FillViaApi: React.FC = () => {
                         <embed
                           src={fileURL}
                           type="application/pdf"
-                          width="800px"
-                          height="300px"
+                          className="w-full h-[300px]"
                         />
                       ) : (
                         "Your Uploaded PDF will show up here"
