@@ -260,7 +260,7 @@ const PDFFillAPI: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex justify-end mx-10 gap-4 my-3 pb-1'>
+                                <div className='flex justify-end mx-10 gap-4 my-3 py-5'>
                                     <button
                                         className="px-4 py-2 bg-[#3A4F72] text-white hover:bg-blue-600"
                                         onClick={handlePrevious}
