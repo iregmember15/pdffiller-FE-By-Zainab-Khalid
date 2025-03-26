@@ -46,7 +46,7 @@ const DownloadFilledPDFOptions: React.FC = () => {
             id="combined"
             checked={checkboxes.combined}
             onChange={() => handleCheckboxChange("combined")}
-            className="mr-2"
+            className="mx-2"
           />
           <label htmlFor="combined" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
             Combined PDF Document
