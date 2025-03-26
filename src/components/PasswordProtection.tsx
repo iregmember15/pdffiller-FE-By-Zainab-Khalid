@@ -7,7 +7,7 @@ const PasswordProtection: React.FC = () => {
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [manualPin, setManualPin] = useState("");
     const [selectedRadio, setSelectedRadio] = useState("combination");
-
+    const [passwordError,setPasswordError] = useState("");
     const columns = ["ID", "First Name", "Last Name", "DOB", "Address"];
 
     const dropdownOptions = ["First 4 Char", "Last 4 Char"];
@@ -121,7 +121,10 @@ const PasswordProtection: React.FC = () => {
                 {selectedOptions.length > 0 && (
                     <>
                         <p className="font-bold py-2 ">Create Your Own PIN: </p>
-                        <div className="flex justify-start items-center gap-2 ">
+                        <div className="flex flex-col ">
+                            
+                            <div className=" flex">
+                                <div className="flex gap-2">
                             <input
                                 type="radio"
                                 name="pinMethod"
@@ -134,18 +137,32 @@ const PasswordProtection: React.FC = () => {
                             <input
                                 type="text"
                                 value={manualPin}
-                                onChange={(e) => setManualPin(e.target.value)}
-                                min={4}
-                                max={9}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    setManualPin(value)
+
+                                    if( value.length < 4) {
+                                        
+                                        setPasswordError('pin must be minimum 4 digits');
+                                    } else if(value.length > 9) {
+                                        setPasswordError('pin must be maximum 9 digits');
+                                    } else {
+                                        setPasswordError('');
+                                    }
+                                }}
+                                
                                 placeholder="Enter your PIN"
-                                className="mt-2 border border-gray-400 px-4 py-2 rounded w-1/3"
+                                className="border border-gray-400 px-4 py-2 rounded w-1/3"
                             />
+                            </div>
                             <div className="flex justify-center items-center mx-3 ">upto: {" "}
                                 <div className="flex flex-col mx-2">
                                     <span> ( max 9 digits)</span>
                                     <span> ( min 4 digits)</span>
                                 </div>
                             </div>
+                            </div>
+                            {passwordError &&<span className="text-red-600 block">{passwordError}</span>}
                         </div>
                     </>
                 )}
@@ -157,7 +174,7 @@ const PasswordProtection: React.FC = () => {
                     Use My Selection of PIN as Default for All PDF Docs
                 </label>
             </div>
-            <div className="flex justify-end"><button className="mt-4 px-6 py-2 bg-[#182B57] text-white rounded">
+            <div className="flex justify-end"><button disabled={Boolean(passwordError)} className="mt-4 px-6 disabled:bg-gray-200 py-2 bg-[#182B57] text-white rounded">
                 Set Password
             </button></div>
 
