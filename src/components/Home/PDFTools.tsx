@@ -93,6 +93,8 @@ const PDFTools = () => {
         </div>
       </div>
 
+
+
       <div
         className="mx-2 lg:mx-14 my-6 border bg-gradient-to-r from-white to-blue-50 rounded-lg shadow-lg overflow-hidden bg-cover bg-center"
       >
