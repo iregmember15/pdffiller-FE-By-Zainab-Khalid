@@ -328,7 +328,7 @@ const PDFFillExcelAPI: React.FC = () => {
                     </div>
                     <div className='px-2 lg:px-10 text-sm w-full'>
                       <p> A: call our API Endpoint & provide data in JSON format. Our API will respond with filled pdf documents:
-                        <p className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></p>
+                        <span className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></span>
 
                       </p>
                       <p>B: Provide/ (as explained below)your own data API Endpoint. We will call your API and will fill your template as per schedule you set up:
