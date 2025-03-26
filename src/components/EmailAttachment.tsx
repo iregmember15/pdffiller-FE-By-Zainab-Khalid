@@ -5,7 +5,9 @@ import EmailContent from './EmailContent';
 
 const EmailAttachment: React.FC = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-
+    const [fromEmail, setFromEmail] = useState<string>("");
+    const [fromName, setFromName] = useState<string>("");
+    const [subject, setSubject] = useState<string>("");
     const subMenus = ["Type", "CSV file", "Connect with gmail contact via api"];
     return (
         <div className='text-[#182B57]'>
@@ -13,8 +15,8 @@ const EmailAttachment: React.FC = () => {
             <div className='flex justify-between items-center '>
                 <input
                     type="email"
-                    value=""
-                    onChange={(e) => (e.target.value)}
+                    value={fromEmail}
+                    onChange={(e) => setFromEmail(e.target.value)}
                     placeholder="From Email"
                     className="mt-2 border border-gray-400 px-4 py-2  w-[60%]"
                 />
@@ -23,8 +25,8 @@ const EmailAttachment: React.FC = () => {
             </div>
             <input
                 type="text"
-                value=""
-                onChange={(e) => (e.target.value)}
+                value={fromName}
+                onChange={(e) => setFromName(e.target.value)}
                 placeholder="From Name"
                 className="mt-2 border border-gray-400 px-4 py-2  w-full"
             />
@@ -87,8 +89,8 @@ const EmailAttachment: React.FC = () => {
                 subject Line
                 <input
                     type="text"
-                    value=""
-                    onChange={(e) => (e.target.value)}
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     placeholder=""
                     className="mt-2 border border-gray-400 px-4 py-2  w-full"
                 />
