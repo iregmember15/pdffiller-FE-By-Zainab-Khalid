@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import uploadIcon from '../assets/images/uploadpdf.png';
 import createAPI from '../assets/images/create_api.png';
 import arrowIcon from '../assets/images/arrow.png';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import CreateAPIMsg from '../components/CreateAPIMsg';
 
 const PDFFillAPI: React.FC = () => {
@@ -42,7 +42,7 @@ const PDFFillAPI: React.FC = () => {
         }
     };
 
-    const hanldeCreateAPI = () => {
+    const handleCreateAPI = () => {
         setIsCreateAPI(true);
     }
 
@@ -238,13 +238,13 @@ const PDFFillAPI: React.FC = () => {
 
                                         <div className='px-2 lg:px-10 text-sm w-full'>
                                             <p> A: call our API Endpoint & provide data in JSON format. Our API will respond with filled pdf documents:
-                                                <p className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></p>
+                                                <span className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></span>
 
                                             </p>
                                             <p>B: Provide/ (as explained below)your own data API Endpoint. We will call your API and will fill your template as per schedule you set up:
                                             </p>
                                             <p>
-                                                C: <button onClick={hanldeCreateAPI}>Create api using our app</button>
+                                                C: <button onClick={handleCreateAPI}>Create api using our app</button>
                                             </p>
                                             <div className='flex flex-col lg:flex-row justify-between items-center w-full py-4 gap-2 '>
                                                 <label htmlFor='API Endpoint' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>API Endpoint

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import backIcon from '../assets/images/backIcon.png';
 
 const FillViaApi: React.FC = () => {

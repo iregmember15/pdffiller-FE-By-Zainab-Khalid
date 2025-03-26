@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import arrowIcon from "../assets/images/arrow.png";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import CreateAPIMsg from "../components/CreateAPIMsg";
 
 const FillViaApi: React.FC = () => {
@@ -30,7 +30,7 @@ const FillViaApi: React.FC = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  const hanldeCreateAPI = () => {
+  const handleCreateAPI = () => {
     setIsCreateAPI(true);
   };
 
@@ -235,7 +235,7 @@ const FillViaApi: React.FC = () => {
                       </p>
                       <p>
                         C:{" "}
-                        <button onClick={hanldeCreateAPI}>
+                        <button onClick={handleCreateAPI}>
                           Create api using our app
                         </button>
                       </p>

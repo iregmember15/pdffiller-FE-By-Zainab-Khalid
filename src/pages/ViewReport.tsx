@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import backIcon from '../assets/images/backIcon.png';
 
 interface Template {
