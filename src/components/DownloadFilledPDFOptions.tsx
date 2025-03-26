@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 
 const DownloadFilledPDFOptions: React.FC = () => {
-  const [checkboxes, setCheckboxes] = useState<{
-    separated: boolean;
-    combined: boolean;
-  }>({
+  const [checkboxes, setCheckboxes] = useState({
     separated: false,
     combined: true,
   });
 
 
   const [radioGroups, setRadioGroups] = useState({
-    row1: "", // "keep" or "remove"
-    row2: "", // "printBoth" or "printPlaceholders"
-    row3: "", // "compress" or "doNotCompress"
+    row1: "remove", // "keep" or "remove"
+    row2: "printBoth", // "printBoth" or "printPlaceholders"
+    row3: "compress", // "compress" or "doNotCompress"
   });
 
   const handleCheckboxChange = (key: keyof typeof checkboxes) => {
-    setCheckboxes((prev) => ({ ...prev, [key]: !prev[key] }));
+    setCheckboxes((prev) => ({
+      separated: key === 'separated' ? !prev.separated : false,
+      combined: key === 'combined' ? !prev.combined : false
+    }));
   };
 
 
