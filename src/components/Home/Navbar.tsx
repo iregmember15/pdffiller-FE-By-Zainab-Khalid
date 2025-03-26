@@ -6,7 +6,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className='bg-[#3A4F72] text-white px-4 py-4 md:px-10 flex justify-between items-center'>
+        <nav className='bg-[#182B57] text-white px-4 py-4 md:px-10 flex justify-between items-center sticky top-0 z-10'>
             <Link to='/' className='font-bold text-lg md:text-xl'>iREG-IT</Link>
             <div className='hidden md:flex justify-between items-center gap-10'>
                 {navItems.map((item, index) =>
