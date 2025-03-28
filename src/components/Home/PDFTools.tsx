@@ -6,7 +6,8 @@ import uploadedPDF from "../../assets/images/uploadedPDF.png";
 
 const PDFTools = () => {
   return (
-    <div className=" mt-20 min-h-screen ">
+    <div className="container m-auto">
+      <div className=" mt-20 min-h-screen ">
       <div className=" mx-2 lg:mx-72 text-center capitalize">
         <h1 className="text-[#182B57] font-bold text-[24px] ">
           All the tools you need in one location to deal with PDFs
@@ -23,7 +24,7 @@ const PDFTools = () => {
           <Link
             to={tool.path}
             key={index}
-            className="bg-white rounded-xl shadow-md p-5 flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="bg-white rounded-xl shadow-md p-5 flex flex-col hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
             onClick={() => localStorage.clear()}
           >
             <div className="flex justify-end mb-3">
@@ -70,7 +71,7 @@ const PDFTools = () => {
         </div>
       </div>
 
-      <div className="mx-2 lg:mx-14 my-6 border bg-gradient-to-r from-blue-50 to-white rounded-lg shadow-lg overflow-hidden">
+      <div  id="contact" className="mx-2 lg:mx-14 my-6 border bg-gradient-to-r from-blue-50 to-white rounded-lg shadow-lg overflow-hidden">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between py-8 px-6">
           <div className="md:w-1/2 text-left md:pl-6 lg:pl-16 mt-8 md:mt-0">
             <h1 className="text-[#182B57] font-bold text-[28px] mb-4">
@@ -94,6 +95,7 @@ const PDFTools = () => {
       </div>
 
       <div
+      id="about"
         className="mx-2 lg:mx-14 my-6 border bg-gradient-to-r from-white to-blue-50 rounded-lg shadow-lg overflow-hidden bg-cover bg-center"
       >
         <div className="mx-10 lg:mx-28 py-10 flex flex-col justify-center items-center">
@@ -108,6 +110,7 @@ const PDFTools = () => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

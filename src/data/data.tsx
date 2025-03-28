@@ -30,11 +30,11 @@ export const navItems = [
   },
   {
     label: "Contact",
-    path: "/",
+    path: "/#contact",
   },
   {
     label: "About",
-    path: "/",
+    path: "/#about",
   },
 ];
 
