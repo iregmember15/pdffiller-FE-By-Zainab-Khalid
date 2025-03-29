@@ -1,6 +1,6 @@
 import React from "react";
 import { footerLinks } from "../data/data";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import Facebook from "../assets/images/Facebook.png";
 import Instagram from "../assets/images/Instagram.png";
 import Linkedin from "../assets/images/Linkedin.png";

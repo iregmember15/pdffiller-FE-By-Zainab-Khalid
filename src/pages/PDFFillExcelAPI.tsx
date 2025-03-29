@@ -6,7 +6,7 @@ import demoIcon from "../assets/images/demo.png";
 import uploadPDF from "../assets/images/upload_body.png";
 import uploadedPdf from "../assets/images/uploadedPDF.png";
 import { PDFFillExcelAPIItems } from "../data/data";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import CreateAPIMsg from "../components/CreateAPIMsg";
 
@@ -15,7 +15,9 @@ const PDFFillExcelAPI: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [uploadedFileURL, setUploadedFileURL] = useState<string | null>(null);
   const [isCreateAPI, setIsCreateAPI] = useState<boolean>(false);
-
+  const [endPoint, setEndPoint] = useState('');
+  const [key, setKey] = useState('');
+  const [schedule, setSchedule] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -328,7 +330,7 @@ const PDFFillExcelAPI: React.FC = () => {
                     </div>
                     <div className='px-2 lg:px-10 text-sm w-full'>
                       <p> A: call our API Endpoint & provide data in JSON format. Our API will respond with filled pdf documents:
-                        <p className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></p>
+                        <span className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></span>
 
                       </p>
                       <p>B: Provide/ (as explained below)your own data API Endpoint. We will call your API and will fill your template as per schedule you set up:
@@ -338,13 +340,28 @@ const PDFFillExcelAPI: React.FC = () => {
                       </p>
                       <div className='flex flex-col lg:flex-row justify-between items-center w-full py-4 gap-2 '>
                         <label htmlFor='API Endpoint' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>API Endpoint
-                          <input type='text' placeholder='' title='API Endpoint' className='w-full  border border-gray-700' />
+                          <input type='text'
+                          value={endPoint}
+                           onChange={(e) =>{
+                            setEndPoint(e.target.value);
+                           }}
+                           placeholder='' title='API Endpoint' className='w-full  border border-gray-700' />
                         </label>
                         <label htmlFor='Key' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>Key
-                          <input type='text' placeholder='' title='Key' className='w-full  border border-gray-700' />
+                          <input type='text' 
+                          value={key}
+                          onChange={(e) =>{
+                            setKey(e.target.value);
+                          }}
+                          placeholder='' title='Key' className='w-full  border border-gray-700' />
                         </label>
                         <label htmlFor='Schedule' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>Schedule
-                          <input type='text' placeholder='' title='Schedule' className='w-full  border border-gray-700' />
+                          <input type='text' 
+                          value={schedule}
+                          onChange={(e) =>{
+                            setSchedule(e.target.value);
+                          }}
+                          placeholder='' title='Schedule' className='w-full  border border-gray-700' />
                         </label>
                       </div>
                     </div>

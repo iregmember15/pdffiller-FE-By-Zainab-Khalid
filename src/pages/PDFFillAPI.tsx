@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import uploadIcon from '../assets/images/uploadpdf.png';
 import createAPI from '../assets/images/create_api.png';
 import arrowIcon from '../assets/images/arrow.png';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import CreateAPIMsg from '../components/CreateAPIMsg';
 
 const PDFFillAPI: React.FC = () => {
@@ -10,7 +10,9 @@ const PDFFillAPI: React.FC = () => {
     const [fileURL, setFileURL] = useState<string | null>(null);
     const [isCreateAPI, setIsCreateAPI] = useState<boolean>(false);
     const navigate = useNavigate();
-
+    const [endPoint,setEndPoint] = useState("");
+    const [key,setKey] = useState("");
+    const [schedule, setSchedule] = useState("");
     useEffect(() => {
 
         const storedFileURL = localStorage.getItem('uploadedPDF');
@@ -42,7 +44,7 @@ const PDFFillAPI: React.FC = () => {
         }
     };
 
-    const hanldeCreateAPI = () => {
+    const handleCreateAPI = () => {
         setIsCreateAPI(true);
     }
 
@@ -238,29 +240,44 @@ const PDFFillAPI: React.FC = () => {
 
                                         <div className='px-2 lg:px-10 text-sm w-full'>
                                             <p> A: call our API Endpoint & provide data in JSON format. Our API will respond with filled pdf documents:
-                                                <p className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></p>
+                                                <span className='flex flex-wrap'><Link to={`https://app.pdfmama.com/api/fill/abc123456789.pdf`}>https://app.pdfmama.com/api/fill/abc123456789.pdf</Link></span>
 
                                             </p>
                                             <p>B: Provide/ (as explained below)your own data API Endpoint. We will call your API and will fill your template as per schedule you set up:
                                             </p>
                                             <p>
-                                                C: <button onClick={hanldeCreateAPI}>Create api using our app</button>
+                                                C: <button onClick={handleCreateAPI}>Create api using our app</button>
                                             </p>
                                             <div className='flex flex-col lg:flex-row justify-between items-center w-full py-4 gap-2 '>
                                                 <label htmlFor='API Endpoint' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>API Endpoint
-                                                    <input type='text' placeholder='' title='API Endpoint' className='w-full  border border-gray-700' />
+                                                    <input type='text' placeholder='' title='API Endpoint' className='w-full  border border-gray-700'
+                                                    value={endPoint}
+                                                    onChange={(e) =>{
+                                                        setEndPoint(e.target.value);
+                                                    }}
+                                                     />
                                                 </label>
                                                 <label htmlFor='Key' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>Key
-                                                    <input type='text' placeholder='' title='Key' className='w-full  border border-gray-700' />
+                                                    <input type='text' placeholder='' title='Key' className='w-full  border border-gray-700'
+                                                    value={key}
+                                                    onChange={(e) =>{
+                                                        setKey(e.target.value);
+                                                    }}
+                                                     />
                                                 </label>
                                                 <label htmlFor='Schedule' className='w-full lg:w-1/3 flex justify-center items-center gap-2'>Schedule
-                                                    <input type='text' placeholder='' title='Schedule' className='w-full  border border-gray-700' />
+                                                    <input type='text' placeholder='' title='Schedule' className='w-full  border border-gray-700'
+                                                    value={schedule} 
+                                                    onChange={(e) =>{
+                                                        setSchedule(e.target.value)
+                                                    }}
+                                                    />
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex justify-end mx-10 gap-4 my-3 pb-1'>
+                                <div className='flex justify-end mx-10 gap-4 my-3 py-5'>
                                     <button
                                         className="px-4 py-2 bg-[#3A4F72] text-white hover:bg-blue-600"
                                         onClick={handlePrevious}
