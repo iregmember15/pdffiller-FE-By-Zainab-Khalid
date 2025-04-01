@@ -34,6 +34,11 @@ apiClient.interceptors.response.use(
       Cookies.remove("access_token");
       window.location.href = "/";
     }
+    if (error.response?.status === 403) {
+      console.error("Unauthorized! Redirecting to login...");
+      Cookies.remove("access_token");
+      window.location.href = "/";
+    }
     return Promise.reject(error);
   }
 );

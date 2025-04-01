@@ -1,5 +1,5 @@
 import apiClient from "./index"; // Import the Axios instance
-import { FillPdfRequest } from "../@types/fillPDF";
+import { FillPdfRequest, extractAcroFields } from "../@types/fillPDF";
 
 export const fillPdfApi = async (payload: FillPdfRequest) => {
   try {
@@ -34,6 +34,26 @@ export const fillPdfApi = async (payload: FillPdfRequest) => {
     URL.revokeObjectURL(downloadUrl); // Clean up
 
     return true; // Indicate success
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || "Failed to fill PDF");
+  }
+};
+export const extractAcroFieldsApi = async (payload: extractAcroFields) => {
+  try {
+    const formData = new FormData();
+
+    if (payload.pdfFile)
+      formData.append("pdfFile", payload.pdfFile, payload.pdfFile.name);
+
+    const { data } = await apiClient.post(
+      `/pdf_filler/api/extract-pdf/fields?extractionMode=${payload.extractionMode}`,
+      formData,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+
+    return data; // Indicate success
   } catch (error: any) {
     throw new Error(error.response?.data?.message || "Failed to fill PDF");
   }
