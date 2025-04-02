@@ -11,6 +11,8 @@ const FilterBankDetails: React.FC = () => {
     <div className="flex flex-col items-center justify-center h-auto">
       <div className="flex flex-col  lg:flex-row gap-2 lg:h-12 ">
         {/* Bank Dropdown */}
+        {
+          selectedBank && banks[selectedBank] && (
         <select
           className="border border-gray-500 px-4 py-2 rounded-r-md"
           title="banks"
@@ -28,7 +30,8 @@ const FilterBankDetails: React.FC = () => {
               {bank}
             </option>
           ))}
-        </select>
+        </select>)
+        }
 
         {/* City Dropdown */}
         {selectedBank && (

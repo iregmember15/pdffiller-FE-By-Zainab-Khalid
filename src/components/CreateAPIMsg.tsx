@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+
 
 interface CreateAPIMsgProps {
     setIsCreateAPI: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,7 +13,9 @@ const CreateAPIMsg: React.FC<CreateAPIMsgProps> = ({ setIsCreateAPI }) => {
             <div className=' bg-white flex  flex-col justify-center items-center m-3 lg:mx-20 lg:my-10 h-[400px] w-full p-2 lg:w-1/2'>
 
                 <h1 className='font-semibold text-lg  capitalize text-[#182B57]'>Use our app to create api</h1>
-                <Link to={`https://sheetify.clicflo.com`} className='underline text-[#182B57]'>https://sheetify.clicflo.com</Link>
+                <a href={`https://sheetify.clicflo.com`}
+                target="_blank" 
+                rel="noopener noreferrer" className='underline text-[#182B57]'>https://sheetify.clicflo.com</a>
                 <button type="button" onClick={() => setIsCreateAPI(false)} className='mt-4 px-4 py-2 bg-[#3A4F72] text-white'>Done</button>
             </div>
 

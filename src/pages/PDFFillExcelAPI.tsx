@@ -6,7 +6,7 @@ import demoIcon from "../assets/images/demo.png";
 import uploadPDF from "../assets/images/upload_body.png";
 import uploadedPdf from "../assets/images/uploadedPDF.png";
 import { PDFFillExcelAPIItems } from "../data/data";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import CreateAPIMsg from "../components/CreateAPIMsg";
 
@@ -15,7 +15,9 @@ const PDFFillExcelAPI: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [uploadedFileURL, setUploadedFileURL] = useState<string | null>(null);
   const [isCreateAPI, setIsCreateAPI] = useState<boolean>(false);
-
+  const [endPoint, setEndPoint] = useState('');
+  const [key, setKey] = useState('');
+  const [schedule, setSchedule] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
