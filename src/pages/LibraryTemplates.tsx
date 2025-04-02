@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPDF from 'react-pdf-js';
+// import ReactPDF from 'react-pdf-js';
 import pdfFile from '../assets/filled_form.pdf'
 
 const LibraryTemplates: React.FC = () => {
@@ -25,7 +25,7 @@ const LibraryTemplates: React.FC = () => {
                             key={template.id}
                             className="bg-white shadow-md  overflow-hidden w-80   border border-gray-300"
                         >
-                            <ReactPDF file={template.pdfUrl} page={1} scale={0.5} />
+                            {/* <ReactPDF file={template.pdfUrl} page={1} scale={0.5} /> */}
                             <div className="p-4 text-center">
                                 <button
                                     className="text-blue-700 px-4 py-2 font-semibold border-t w-full"

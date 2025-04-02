@@ -1,26 +1,35 @@
-import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
-import PDFFillAPI from "./pages/PDFFillAPI";
-import PDFFillExcelAPI from "./pages/PDFFillExcelAPI";
-import LibraryTemplates from "./pages/LibraryTemplates";
-import MyTemplates from "./pages/MyTemplates";
-import HistoryPage from "./pages/HistoryPage";
-import PrintCheck from "./pages/PrintCheck";
-import PrintAndFillCheque from "./pages/PrintAndFillCheque";
-import FillPrePrintCheque from "./pages/FillPrePrintCheque";
-import FillViaApi from "./pages/FillViaApi";
-import FillViaCSV from "./pages/FillViaCSV";
-import FillManually from "./pages/FillManually";
-import ViewReport from "./pages/ViewReport";
-import ProfessionPage from "./pages/ProfessionPage";
+import { lazy } from "react";
+import PrivateRoute from "./PrivateRoute";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const PDFFillAPI = lazy(() => import("./pages/PDFFillAPI"));
+const PDFFillExcelAPI = lazy(() => import("./pages/PDFFillExcelAPI"));
+const LibraryTemplates = lazy(() => import("./pages/LibraryTemplates"));
+const MyTemplates = lazy(() => import("./pages/MyTemplates"));
+const HistoryPage = lazy(() => import("./pages/HistoryPage"));
+const PrintCheck = lazy(() => import("./pages/PrintCheck"));
+const PrintAndFillCheque = lazy(() => import("./pages/PrintAndFillCheque"));
+const FillPrePrintCheque = lazy(() => import("./pages/FillPrePrintCheque"));
+const FillViaApi = lazy(() => import("./pages/FillViaApi"));
+const FillViaCSV = lazy(() => import("./pages/FillViaCSV"));
+const FillManually = lazy(() => import("./pages/FillManually"));
+const ViewReport = lazy(() => import("./pages/ViewReport"));
+const ProfessionPage = lazy(() => import("./pages/ProfessionPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 
 const App = () => {
   return (
     <div className="App" data-testid="app">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/fill-pdf-api" element={<PDFFillAPI />} />
-        <Route path="/fill-pdf-excel-api" element={<PDFFillExcelAPI />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<HomePage />} />
+          <Route path="/fill-pdf-api" element={<PDFFillAPI />} />
+          <Route path="/fill-pdf-excel-api" element={<PDFFillExcelAPI />} />
+        </Route>
         <Route path="/my-templates" element={<MyTemplates />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/library" element={<LibraryTemplates />} />
