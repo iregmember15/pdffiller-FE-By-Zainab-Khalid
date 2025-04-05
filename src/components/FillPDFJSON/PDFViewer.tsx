@@ -17,7 +17,7 @@ const PDFViewer: React.FC<{
       // Ensure there's only one NutrientViewer instance
       NutrientViewer.unload(container);
 
-      if (container && NutrientViewer) {
+      if (container && NutrientViewer && pdfFile) {
         NutrientViewer.load({
           container,
           // You can also specify a file in public directory, for example /document.pdf

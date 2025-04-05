@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import FillPDFJSONStep1 from "../components/FillPDFJSON/FillPDFJSONStep1";
 import FillPDFJSONStep2 from "../components/FillPDFJSON/FillPDFJSONStep2";
@@ -32,7 +31,6 @@ const PDFFillAPI: React.FC = () => {
       }
     };
 
-
     extractFields();
   }, [step, pdfFile]);
 
@@ -62,20 +60,13 @@ const PDFFillAPI: React.FC = () => {
         )}
         {!isLoading && step === 2 && (
           <FillPDFJSONStep2
-            step={step}
-            setStep={setStep}
-            setPdfFile={setPdfFile}
-            setPdfUrl={setPdfUrl}
             pdfFile={pdfFile}
-            pdfUrl={pdfUrl}
             setJsonData={setJsonData}
             jsonData={jsonData}
-            setError={setError}
-            error={error}
           />
         )}
 
-        {!isLoading && step === 2 && (
+        {/* {!isLoading && step === 2 && (
           <PDFViewer
             // step={step}
             // setStep={setStep}
@@ -88,8 +79,7 @@ const PDFFillAPI: React.FC = () => {
             // setError={setError}
             // error={error}
           />
-        )}
-
+        )} */}
       </div>
       <div className="bg-[#182B57] h-10 fixed bottom-0 w-full"></div>
     </div>
