@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import backIcon from '../assets/images/backIcon.png';
 
 const FillViaApi: React.FC = () => {
@@ -66,8 +66,7 @@ const FillViaApi: React.FC = () => {
                         <embed
                           src={fileURL}
                           type="application/pdf"
-                          width="800px"
-                          height="300px"
+                          className="w-full h-[300px]"
                         />
                       ) : (
                         "Your Uploaded PDF will show up here"

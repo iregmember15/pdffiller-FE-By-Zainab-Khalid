@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const RichTextEditor = () => {
   const [value, setValue] = useState('');
-
+  const quillRef = useRef<ReactQuill | null>(null);
   const modules = {
     toolbar: {
       container: [
@@ -55,6 +55,7 @@ const RichTextEditor = () => {
   return (
     <div data-testid="rich-text-editor">
       <ReactQuill
+        ref={quillRef}
         theme="snow"
         value={value}
         onChange={setValue}

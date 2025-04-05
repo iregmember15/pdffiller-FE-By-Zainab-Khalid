@@ -5,6 +5,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+
   return (
     <nav className="bg-[#3A4F72] text-white px-4 py-4 md:px-10 flex justify-between items-center">
       <Link to="/" className="font-bold text-lg md:text-xl">

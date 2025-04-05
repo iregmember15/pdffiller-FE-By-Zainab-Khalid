@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import FillPDFJSONStep1 from "../components/FillPDFJSON/FillPDFJSONStep1";
 import FillPDFJSONStep2 from "../components/FillPDFJSON/FillPDFJSONStep2";
@@ -30,6 +31,7 @@ const PDFFillAPI: React.FC = () => {
         }
       }
     };
+
 
     extractFields();
   }, [step, pdfFile]);

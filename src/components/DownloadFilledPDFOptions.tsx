@@ -1,32 +1,37 @@
 import React, { useState } from "react";
 
 const DownloadFilledPDFOptions: React.FC = () => {
-  const [checkboxes, setCheckboxes] = useState<{
-    separated: boolean;
-    combined: boolean;
-  }>({
+  const [checkboxes, setCheckboxes] = useState({
     separated: false,
-    combined: true,
+    combined: true, // Ensure at least one is selected by default
   });
-
 
   const [radioGroups, setRadioGroups] = useState({
-    row1: "", // "keep" or "remove"
-    row2: "", // "printBoth" or "printPlaceholders"
-    row3: "", // "compress" or "doNotCompress"
+    row1: "keep", // Set default values
+    row2: "printBoth",
+    row3: "compress",
   });
 
+  // Prevent unchecking both checkboxes
   const handleCheckboxChange = (key: keyof typeof checkboxes) => {
-    setCheckboxes((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+    setCheckboxes((prev) => {
+      const updated = { ...prev, [key]: !prev[key] };
 
+      // Ensure at least one checkbox remains selected
+      if (!updated.separated && !updated.combined) {
+        return prev; // Ignore update if both are unchecked
+      }
+      return updated;
+    });
+  };
 
   const handleRadioChange = (row: string, value: string) => {
     setRadioGroups((prev) => ({ ...prev, [row]: value }));
   };
 
   return (
-    <div className=" pb-5">
+    <div className="pb-5">
+      {/* Checkbox Options */}
       <div className="flex justify-between items-center mb-6 lg:gap-4">
         <div className="flex items-center w-1/2">
           <input
@@ -36,7 +41,10 @@ const DownloadFilledPDFOptions: React.FC = () => {
             onChange={() => handleCheckboxChange("separated")}
             className="mr-2"
           />
-          <label htmlFor="separated" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+          <label
+            htmlFor="separated"
+            className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center"
+          >
             Separated PDF Document
           </label>
         </div>
@@ -46,15 +54,20 @@ const DownloadFilledPDFOptions: React.FC = () => {
             id="combined"
             checked={checkboxes.combined}
             onChange={() => handleCheckboxChange("combined")}
-            className="mr-2"
+            className="mx-2"
           />
-          <label htmlFor="combined" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+          <label
+            htmlFor="combined"
+            className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center"
+          >
             Combined PDF Document
           </label>
         </div>
       </div>
 
+      {/* Radio Options */}
       <div className="space-y-4">
+        {/* Row 1 */}
         <div className="flex justify-between items-center gap-4">
           <div className="flex items-center w-1/2">
             <input
@@ -66,7 +79,7 @@ const DownloadFilledPDFOptions: React.FC = () => {
               onChange={() => handleRadioChange("row1", "keep")}
               className="mr-2"
             />
-            <label htmlFor="keep" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+            <label htmlFor="keep" className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center">
               Keep Interactive Form Elements
             </label>
           </div>
@@ -80,12 +93,13 @@ const DownloadFilledPDFOptions: React.FC = () => {
               onChange={() => handleRadioChange("row1", "remove")}
               className="mr-2"
             />
-            <label htmlFor="remove" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+            <label htmlFor="remove" className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center">
               Remove Interactive Form Elements
             </label>
           </div>
         </div>
 
+        {/* Row 2 */}
         <div className="flex justify-between items-center gap-4">
           <div className="flex items-center w-1/2">
             <input
@@ -97,7 +111,7 @@ const DownloadFilledPDFOptions: React.FC = () => {
               onChange={() => handleRadioChange("row2", "printBoth")}
               className="mr-2"
             />
-            <label htmlFor="printBoth" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+            <label htmlFor="printBoth" className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center">
               Print PDF And Placeholders
             </label>
           </div>
@@ -111,12 +125,16 @@ const DownloadFilledPDFOptions: React.FC = () => {
               onChange={() => handleRadioChange("row2", "printPlaceholders")}
               className="mr-2"
             />
-            <label htmlFor="printPlaceholders" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+            <label
+              htmlFor="printPlaceholders"
+              className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center"
+            >
               Print Only Placeholders
             </label>
           </div>
         </div>
 
+        {/* Row 3 */}
         <div className="flex justify-between items-center gap-4">
           <div className="flex items-center w-1/2">
             <input
@@ -128,7 +146,7 @@ const DownloadFilledPDFOptions: React.FC = () => {
               onChange={() => handleRadioChange("row3", "compress")}
               className="mr-2"
             />
-            <label htmlFor="compress" className="text-gray-700 border border-gray-400 p-2  w-full font-bold text-center">
+            <label htmlFor="compress" className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center">
               Compress PDF Fields
             </label>
           </div>
@@ -142,7 +160,10 @@ const DownloadFilledPDFOptions: React.FC = () => {
               onChange={() => handleRadioChange("row3", "doNotCompress")}
               className="mr-2"
             />
-            <label htmlFor="doNotCompress" className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center  ">
+            <label
+              htmlFor="doNotCompress"
+              className="text-gray-700 border border-gray-400 p-2 w-full font-bold text-center"
+            >
               Do Not Compress
             </label>
           </div>
