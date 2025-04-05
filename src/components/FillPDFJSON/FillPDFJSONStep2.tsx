@@ -148,7 +148,7 @@ const FillPDFJSONStep2: React.FC<FillPDFJSONStep2Props> = ({
                 top: (field.y || 0) * scale + "px",
                 width: (field.width || 100) * scale + "px",
                 height: (field.height || 20) * scale + "px",
-                border: "1px solid #000",
+                border: "1px solid red",
                 background: "rgba(255,255,255,0.8)",
                 fontSize: `${Math.max(10 * scale, 8)}px`, // Prevents text from getting too small
                 padding: "2px",
