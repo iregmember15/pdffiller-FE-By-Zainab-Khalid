@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 // Set API base URL from environment variables
 // const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
-const API_BASE_URL = import.meta.env?.VITE_APP_BASE_URL || process.env.VITE_APP_BASE_URL || "";
+const API_BASE_URL = process.env.VITE_APP_BASE_URL || "";
 
 // Create Axios instance
 export const apiClient = axios.create({

@@ -7,6 +7,8 @@
 import { TextEncoder, TextDecoder } from 'util';
 import '@testing-library/jest-dom';
 import { configure } from '@testing-library/react';
+import { expect } from '@jest/globals';
+
 
 // Polyfill TextEncoder and TextDecoder globally for Jest environment
 global.TextEncoder = TextEncoder;

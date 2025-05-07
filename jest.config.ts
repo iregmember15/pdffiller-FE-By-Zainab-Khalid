@@ -49,9 +49,8 @@ const config: Config.InitialOptions = {
     "^.+\\.(js|jsx)$": "babel-jest"
   },
   transformIgnorePatterns: [
-    // Update this to exclude ESM modules that need to be transformed
-    "node_modules/(?!(pdfjs-dist|react-quill|other-esm-modules)/"
-  ],
+    "node_modules/(?!(pdfjs-dist|react-quill|other-esm-modules)/)"
+  ], 
   moduleNameMapper: {
     "\\.(css|scss|sass|less)$": "identity-obj-proxy", // Better CSS mocking
     "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
