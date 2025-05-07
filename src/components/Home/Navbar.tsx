@@ -7,7 +7,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-[#3A4F72] text-white px-4 py-4 md:px-10 flex justify-between items-center">
+    <nav className="bg-[#3A4F72] text-white px-4 py-4 md:px-10 flex justify-between items-center fixed top-0 left-0 w-full z-50 shadow-md">
       <Link to="/" className="font-bold text-lg md:text-xl">
         iREG-IT
       </Link>

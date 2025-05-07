@@ -18,12 +18,12 @@ const PDFTools = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 lg:m-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 lg:m-10 ">
         {toolsData.map((tool, index) => (
           <Link
             to={tool.path}
             key={index}
-            className="bg-white rounded-xl shadow-md p-5 flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="bg-white rounded-xl shadow-md p-5 flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-105  cursor-pointer  shadow-blue-400"
             onClick={() => localStorage.clear()}
           >
             <div className="flex justify-end mb-3">
